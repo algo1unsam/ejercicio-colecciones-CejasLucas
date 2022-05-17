@@ -1,17 +1,30 @@
 import capos.*
 
 test "encontrar artefactos" {
-	
+	rolando.agarra(espada)
+	rolando.agarra(libro)
+	rolando.agarra(collar)
+	assert.equals( #{espada, libro}, rolando.elementosSuyos() )
 }
 
 test "castillo" {
-	
-}
-
-test "posesiones" {
-	
+	rolando.agarra(espada)
+	rolando.agarra(libro)
+	rolando.dejarArmas()
+ 	rolando.agarra(collar)
+ 	rolando.dejarArmas()
+ 	
+ 	assert.that(rolando.elementosSuyos().isEmpty())
+ 	assert.equals(#{espada,libro,collar}, castillo.elementos())
 }
 
 test "historia" {
-	
+	rolando.agarra(espada)
+	rolando.agarra(libro)
+	rolando.agarra(collar)
+	rolando.dejarArmas()
+	rolando.agarra(armadura)
+	rolando.agarra(collar)
+	assert.equals([espada, libro, collar, armadura, collar], rolando.cronologia() )	
 }
+
